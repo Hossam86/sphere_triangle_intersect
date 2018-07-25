@@ -1,77 +1,75 @@
 #include "v3.h"
-v3::v3(double a , double b , double c)
+v3::v3(double a, double b, double c)
 {
- this-> v[0]=a;
- this-> v[1]=b;
- this-> v[2]=c;
+	this->v[0] = a;
+	this->v[1] = b;
+	this->v[2] = c;
 }
 
-v3::v3 (const v3 & rhs)
+v3::v3(const v3 &rhs)
 {
-v[0]=rhs.v[0];
-v[1]=rhs.v[1];
-v[2]=rhs.v[2];
+	v[0] = rhs.v[0];
+	v[1] = rhs.v[1];
+	v[2] = rhs.v[2];
 }
 
 v3::~v3()
 {
-
 }
 
-v3 & v3::operator = (const v3 & rhs)
+v3 &v3::operator=(const v3 &rhs)
 {
- 	v[0]=rhs.v[0];
- 	v[1]=rhs.v[1];
- 	v[2]=rhs.v[2];
- 	return * this;
+	v[0] = rhs.v[0];
+	v[1] = rhs.v[1];
+	v[2] = rhs.v[2];
+	return *this;
 }
 
-v3 v3::operator+(const v3 & rhs)
+v3 v3::operator+(const v3 &rhs)
 {
-	return v3(v[0]+rhs.v[0],v[1]+rhs.v[1], v[2]+rhs.v[2]);
+	return v3(v[0] + rhs.v[0], v[1] + rhs.v[1], v[2] + rhs.v[2]);
 }
-const v3 v3::operator+(const v3 & rhs)const
+const v3 v3::operator+(const v3 &rhs) const
 {
-	return v3(v[0]+rhs.v[0],v[1]+rhs.v[1], v[2]+rhs.v[2]);
-}
-
-
-v3 v3 ::operator-(const v3 & rhs)
-{
- return v3(v[0]-rhs.v[0],v[1]-rhs.v[1],v[2]-rhs.v[2]);
+	return v3(v[0] + rhs.v[0], v[1] + rhs.v[1], v[2] + rhs.v[2]);
 }
 
-const v3 v3 ::operator-(const v3 & rhs)const
+v3 v3 ::operator-(const v3 &rhs)
 {
- return v3(v[0]-rhs.v[0],v[1]-rhs.v[1],v[2]-rhs.v[2]);
+	return v3(v[0] - rhs.v[0], v[1] - rhs.v[1], v[2] - rhs.v[2]);
 }
 
-v3 v3 :: operator* (const double a)
+const v3 v3 ::operator-(const v3 &rhs) const
 {
-	return v3(v[0]*a,v[1]*a, v[2]*a);
+	return v3(v[0] - rhs.v[0], v[1] - rhs.v[1], v[2] - rhs.v[2]);
 }
 
-v3 v3 :: operator / (const double a)
+v3 v3 ::operator*(const double a)
 {
-	return v3(v[0]/a, v[1]/a, v[2]/a);
+	return v3(v[0] * a, v[1] * a, v[2] * a);
 }
 
-v3 & v3::operator-= (const v3 & rhs)
+v3 v3 ::operator/(const double a)
 {
-	v[0]-=rhs.v[0];
-	v[1]-=rhs.v[1];
-	v[2]-=rhs.v[2];
-	 return *this;
+	return v3(v[0] / a, v[1] / a, v[2] / a);
 }
 
-double v3::dot(const v3 & rhs) const
+v3 &v3::operator-=(const v3 &rhs)
 {
- return v[0]*rhs.v[0]+v[1]*rhs.v[1]+v[2]+rhs.v[2];
+	v[0] -= rhs.v[0];
+	v[1] -= rhs.v[1];
+	v[2] -= rhs.v[2];
+	return *this;
 }
 
-v3 v3::cross(const v3 & rhs)
+double v3::dot(const v3 &rhs) const
 {
-	v3 result ;
+	return v[0] * rhs.v[0] + v[1] * rhs.v[1] + v[2] + rhs.v[2];
+}
+
+v3 v3::cross(const v3 &rhs)
+{
+	v3 result;
 	// code
 	return result;
 }
@@ -91,6 +89,14 @@ double v3::getZ() const
 	return v[2];
 }
 
+double v3::length()
+{
+	return sqrt(v[0]*v[0]+v[1]*v[1]+v[2]*v[2]);
+}
+double v3::length(const v3 &r, const v3 &l)
+{
+	return std::sqrt((l.v[0]-r.v[0])*(l.v[0]-r.v[0])+(l.v[1]-r.v[1])*(l.v[1]-r.v[1])+(l.v[2]-r.v[2])*(l.v[2]-r.v[2]) );
+}
 // void v3::transform(const glm::mat4 & mat)
 // {
 // 	glm::vec4 v =glm::vec4(x,y,z,1.0f),vt;

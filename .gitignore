@@ -8,3 +8,9 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 bin/*
+build/*
+.vscode/
+*.o
+*.gch
+*.out
+*.stl

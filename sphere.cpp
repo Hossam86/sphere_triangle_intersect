@@ -27,3 +27,13 @@ sphere& sphere::operator=(const sphere &rhs)
     center=rhs.center;
     return *this;
 }
+
+v3& sphere::getCenter()
+{
+    return this->center;
+}
+
+double sphere::getRaduis()
+{
+ return this->radius;
+}

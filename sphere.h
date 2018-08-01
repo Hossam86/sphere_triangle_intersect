@@ -13,6 +13,8 @@ class sphere
     sphere(const v3 &c, double r); // arg constructor
     sphere(const sphere &);
     sphere &operator=(const sphere &rhs);
+    v3& getCenter(); 
+    double getRaduis();
     ~sphere();
 };
 #endif

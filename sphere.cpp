@@ -28,7 +28,7 @@ sphere& sphere::operator=(const sphere &rhs)
     return *this;
 }
 
-v3& sphere::getCenter()
+const v3& sphere::getCenter() const
 {
     return this->center;
 }
